@@ -935,6 +935,17 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
   // ---- Interactive maps (Leaflet + OpenStreetMap) ----
+  // ============================================================
+  // MY PINS — add your own pins here, they appear on EVERY map.
+  // To get coordinates: in Google Maps, long-press a spot, and the
+  // numbers (e.g. 52.1085, 4.2790) appear in the search bar / card.
+  // Copy a line, change the numbers and text, keep the commas.
+  // Because these live in this file, everyone with the app sees them.
+  // ============================================================
+  const myPins = [
+    // { ll: [52.1085, 4.2790], label: 'Example pin', info: 'Delete or edit me' },
+  ];
+
   const mapPoints = {
     route: {
       center: [51.0, 2.9], zoom: 7,
@@ -969,8 +980,13 @@
       center: [52.100, 4.280], zoom: 13,
       pins: [
         { ll: [52.0917, 4.2857], label: 'Novotel The Hague World Forum', info: 'Johan de Wittlaan 42-44 \u00b7 hotel' },
-        { ll: [52.0989, 4.2823], label: 'Madurodam', info: 'Miniature park' },
-        { ll: [52.1094, 4.2779], label: 'Scheveningen Beach & Pier', info: 'Beach, pier, Ferris wheel' }
+        { ll: [52.0989, 4.2823], label: 'Madurodam', info: 'Miniature park \u00b7 caf\u00e9 good for lunch' },
+        { ll: [52.1094, 4.2779], label: 'Scheveningen Beach & Pier', info: 'Beach, pier, rides' },
+        { ll: [52.1108, 4.2810], label: 'SkyView Ferris Wheel', info: 'End of the pier \u00b7 best near sunset' },
+        { ll: [52.1091, 4.2758], label: 'LEGOLAND Discovery Centre', info: 'Next to pier \u00b7 rainy-day backup \u00b7 pre-book' },
+        { ll: [52.1069, 4.2703], label: 'SEA LIFE Scheveningen', info: 'Strandweg \u00b7 touch pools' },
+        { ll: [52.0965, 4.2650], label: 'Catch by Simonis', info: 'Harbour \u00b7 the famous fish restaurant \u00b7 birthday dinner option' },
+        { ll: [52.0837, 4.2955], label: 'Albert Heijn XL', info: 'Elandstraat 160 \u00b7 big supermarket, free parking' }
       ]
     }
   };
@@ -1031,6 +1047,15 @@
         L.circleMarker(p.ll, { radius: 5, color: '#1B3A5C', weight: 2, fillColor: '#fff', fillOpacity: 1 })
           .addTo(map)
           .bindPopup('<b>' + p.label + '</b><br>' + p.info);
+      });
+
+      // My pins (gold) — shown on every map
+      myPins.forEach(p => {
+        const marker = L.marker(p.ll, { icon: pinIcon('\u2b50 ' + p.label) }).addTo(map);
+        marker.bindPopup('<b>' + p.label + '</b><br>' + (p.info || ''));
+        L.circleMarker(p.ll, { radius: 6, color: '#B08D57', weight: 3, fillColor: '#fff', fillOpacity: 1 })
+          .addTo(map)
+          .bindPopup('<b>' + p.label + '</b><br>' + (p.info || ''));
       });
 
       // If tiles fail to load entirely (e.g. offline), fall back to the list after a short wait
