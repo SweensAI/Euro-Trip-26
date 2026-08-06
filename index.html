@@ -2,606 +2,1067 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Euro Trip 26">
-<title>Euro Trip 26 — Family Travel Planner</title>
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Family Trip">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<title>Dover → Lille → Bruges → The Hague</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --navy: #1B3A5C;
-  --gold: #B08D57;
-  --green: #4C7A5E;
-  --light: #f5f5f5;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: var(--light);
-  color: #222;
-  line-height: 1.6;
-}
-.container { max-width: 920px; margin: 0 auto; padding: 20px; }
-.header {
-  text-align: center;
-  padding: 40px 20px 30px;
-  margin-bottom: 30px;
-  border-bottom: 3px solid var(--navy);
-}
-.header-tag { 
-  font-size: 12px;
-  letter-spacing: 2px;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.header h1 { 
-  font-size: 42px;
-  margin-bottom: 8px;
-  color: var(--navy);
-  font-weight: 700;
-}
-.header p { 
-  color: #666;
-  font-size: 16px;
-}
-.tabs {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-.tab {
-  padding: 10px 18px;
-  background: white;
-  border: 2px solid #ddd;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-  transition: all 0.2s;
-}
-.tab:hover { border-color: var(--navy); }
-.tab.active { 
-  background: var(--navy);
-  color: white;
-  border-color: var(--navy);
-}
-.content {
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.day-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 2px solid var(--light);
-}
-.sched-row {
-  padding: 22px 0;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  gap: 25px;
-}
-.sched-row:last-child { border-bottom: none; }
-.sched-time {
-  font-weight: 700;
-  color: var(--navy);
-  font-size: 14px;
-  min-width: 100px;
-  flex-shrink: 0;
-}
-.sched-body { flex: 1; }
-.sched-desc {
-  font-size: 16px;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 6px;
-}
-.note {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.5;
-}
-.chips {
-  margin-top: 8px;
-}
-.chip {
-  display: inline-block;
-  padding: 6px 12px;
-  background: var(--navy);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.chip:hover { background: var(--gold); }
-.tip {
-  background: #f9f9f9;
-  padding: 18px;
-  border-left: 4px solid var(--navy);
-  margin: 20px 0;
-  border-radius: 4px;
-}
-.tip-title {
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 8px;
-  font-size: 14px;
-}
-.tip-text {
-  font-size: 13px;
-  color: #555;
-  line-height: 1.6;
-}
-.kid-tag {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  margin-right: 8px;
-  margin-bottom: 10px;
-}
-.kid-tag.jacob { background: #e3f2fd; color: #1565c0; }
-.kid-tag.noah { background: #f3e5f5; color: #6a1b9a; }
-h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  overflow: auto;
-}
-.modal-content {
-  background-color: white;
-  margin: 10% auto;
-  padding: 30px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 600px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-.modal-close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  line-height: 1;
-}
-.modal-close:hover { color: var(--navy); }
-.modal-title {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--navy);
-  margin-bottom: 8px;
-}
-.modal-tag {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 15px;
-}
-.modal-text {
-  font-size: 14px;
-  color: #333;
-  line-height: 1.7;
-  margin-bottom: 15px;
-}
-.modal-tip {
-  background: #f9f9f9;
-  padding: 12px;
-  border-left: 3px solid var(--gold);
-  font-size: 13px;
-  color: #555;
-  font-style: italic;
-}
+  :root {
+    --navy: #1B3A5C;
+    --gold: #B08D57;
+    --green: #4C7A5E;
+    --paper: #F4F0E6;
+    --paper-2: #FFFFFF;
+    --ink: #2A2A28;
+    --ink-soft: #6B6660;
+    --line: #E2DCCB;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin:0; padding:0; background: var(--navy); overscroll-behavior-y: none; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--ink);
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+  h1,h2,h3,.display { font-family: 'Fraunces', serif; }
+
+  header {
+    background: var(--navy);
+    color: #F4F0E6;
+    padding: calc(var(--safe-top) + 14px) 18px 14px;
+    flex-shrink: 0;
+  }
+  header .eyebrow {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 4px;
+  }
+  header h1 {
+    font-size: 20px; font-weight: 600; margin: 0 0 2px; line-height: 1.2;
+  }
+  header .route {
+    font-size: 12.5px; color: #B9C4D0; margin-top: 4px;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    background: var(--navy);
+    padding: 4px 12px 12px;
+    flex-shrink: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display:none; }
+  .tab {
+    flex: 0 0 auto;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 7px 12px;
+    color: #DCE3EA;
+    display: flex; flex-direction: column; align-items: center;
+    font-family: 'Inter', sans-serif;
+    min-width: 54px;
+    cursor: pointer;
+  }
+  .tab .tab-date { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.8; }
+  .tab .tab-num { font-size: 15px; font-weight: 700; margin-top: 1px; }
+  .tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  main {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--paper);
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: calc(var(--safe-bottom) + 24px);
+  }
+
+  .panel, .map-panel, .info-panel { display: none; padding: 18px 18px 8px; }
+  .panel.active, .map-panel.active, .info-panel.active { display: block; }
+
+  .panel-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .stamp {
+    flex-shrink: 0;
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2.5px solid var(--accent);
+    color: var(--accent);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-weight: 700; font-size: 20px; line-height: 1;
+  }
+  .stamp span { font-family: 'Inter', sans-serif; font-size: 8px; letter-spacing: 0.1em; margin-top: 2px; font-weight: 600; }
+  .panel-date { font-size: 12px; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  .panel-title { font-size: 19px; font-weight: 600; margin-top: 2px; }
+
+  .sched-row { display: grid; grid-template-columns: 58px 20px 1fr; margin-bottom: 2px; }
+  .sched-time { font-size: 12.5px; font-weight: 600; color: var(--accent); padding-top: 2px; }
+  .sched-line { display: flex; flex-direction: column; align-items: center; }
+  .sched-line .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 4px; }
+  .sched-line .line { flex: 1; width: 2px; background: var(--line); margin-top: 2px; }
+  .sched-row:last-child .sched-line .line { display: none; }
+  .sched-body { padding-bottom: 20px; }
+  .sched-desc { font-size: 14.5px; font-weight: 600; color: var(--ink); }
+  .note { font-size: 12.5px; color: var(--ink-soft); margin-top: 2px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip {
+    font-family: 'Inter', sans-serif; font-size: 12.5px; font-weight: 600;
+    background: var(--paper-2); color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 20px;
+    padding: 6px 12px; cursor: pointer;
+  }
+  .chip:active { background: var(--accent); color: white; }
+
+  /* Map panel */
+  .map-panel img { width: 100%; border-radius: 14px; border: 1px solid var(--line); }
+  .leaflet-map { width: 100%; height: 62vh; min-height: 320px; border-radius: 14px; border: 1px solid var(--line); background: #eef1f0; }
+  .leaflet-popup-content { font-family: 'Inter', sans-serif; font-size: 14px; }
+  .leaflet-popup-content b { font-family: 'Fraunces', serif; }
+  .pin-label { background: var(--navy); color: #fff; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 11px; padding: 2px 7px; border-radius: 8px; white-space: nowrap; box-shadow: 0 1px 3px rgba(0,0,0,.3); transform: translate(-50%, -130%); }
+  .map-fallback { padding: 16px; }
+  .map-fallback-note { background: #FFF7E6; border: 1px solid #F0D9A0; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; font-size: 13px; color: #6B4E10; }
+  .map-fallback-item { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
+  .map-fallback-item .fb-name { font-family: 'Fraunces', serif; font-weight: 600; font-size: 15px; margin-bottom: 3px; }
+  .map-fallback-item .fb-info { font-size: 13px; color: #555; }
+  .map-fallback-item .fb-link { display: inline-block; margin-top: 6px; font-size: 12px; color: var(--navy); text-decoration: none; font-weight: 600; }
+  .map-subtabs {
+    display: flex; gap: 6px; overflow-x: auto; margin-bottom: 14px;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .map-subtabs::-webkit-scrollbar { display:none; }
+  .map-subtab {
+    flex: 0 0 auto; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600;
+    background: var(--paper-2); color: var(--navy); border: 1px solid var(--line);
+    border-radius: 20px; padding: 8px 14px; cursor: pointer;
+  }
+  .map-subtab.active { background: var(--navy); color: white; border-color: var(--navy); }
+  .map-view { display: none; }
+  .map-view.active { display: block; }
+
+  /* Info panel */
+  .info-panel h2 { font-size: 16px; margin: 22px 0 10px; color: var(--navy); }
+  .info-panel h2:first-child { margin-top: 0; }
+  .book-row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 14px; margin-bottom: 8px;
+  }
+  .book-name { font-weight: 700; font-size: 14px; }
+  .book-detail { font-size: 12px; color: var(--ink-soft); margin-top: 1px; }
+  .book-price { font-weight: 700; font-size: 13.5px; color: var(--green); white-space: nowrap; }
+  .tip { background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; }
+  .tip-title { font-weight: 700; font-size: 13.5px; color: var(--navy); }
+  .tip-text { font-size: 13px; color: var(--ink-soft); margin-top: 3px; line-height: 1.45; }
+  .birthday-box {
+    background: #FFF9EF; border: 2px solid var(--gold); border-radius: 14px;
+    padding: 16px; margin-bottom: 18px;
+  }
+  .birthday-box .tip-title { color: #8A6416; font-size: 15px; }
+  .birthday-box .tip-text { color: #6B4E10; }
+  .kid-tag {
+    display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.04em; padding: 2px 8px; border-radius: 8px; margin-bottom: 4px;
+  }
+  .kid-tag.jacob { background: #DCE8F5; color: #1B3A5C; }
+  .kid-tag.noah { background: #E8F0E5; color: #3F5E48; }
+  .prebook-link {
+    display: inline-block; margin-top: 6px; font-size: 12.5px; color: var(--navy);
+    text-decoration: none; font-weight: 700; border-bottom: 1px solid var(--navy);
+  }
+
+  /* Activity modal */
+  .overlay {
+    position: fixed; inset: 0; background: rgba(20,20,18,0.55);
+    display: none; align-items: flex-end; z-index: 50;
+  }
+  .overlay.active { display: flex; }
+  .sheet {
+    background: var(--paper-2);
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 22px 22px calc(var(--safe-bottom) + 22px);
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: slideup 0.25s ease-out;
+  }
+  @keyframes slideup { from { transform: translateY(30px); opacity:0; } to { transform: translateY(0); opacity:1; } }
+  .sheet-handle { width: 40px; height: 4px; background: var(--line); border-radius: 2px; margin: 0 auto 16px; }
+  .sheet-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); font-weight: 700; }
+  .sheet-name { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; margin: 4px 0 14px; color: var(--navy); }
+  .sheet-text { font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .sheet-tip-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--green); margin: 16px 0 6px; }
+  .sheet-close {
+    margin-top: 20px; width: 100%; padding: 13px; border-radius: 12px; border: none;
+    background: var(--navy); color: white; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14.5px;
+  }
 </style>
 </head>
 <body>
 
-<div class="container">
+<header>
+  <div class="eyebrow">Sweeney Family · 3–9 Aug 2026</div>
+  <h1>France → Belgium → Netherlands</h1>
+  <div class="route">Dover → Lille → Bruges → The Hague / Scheveningen → Dover</div>
+</header>
 
-<div class="header">
-<div class="header-tag">SWEENEY FAMILY · 3–9 AUG 2026</div>
-<h1>Euro Trip 26</h1>
-<p>Dover → Lille → Bruges → The Hague → Dover</p>
-</div>
+<nav class="tabs">
+  <button class="tab active" data-tab="d1" onclick="showTab('d1')" style="--accent:#4A6FA5"><span class="tab-date">Mon</span><span class="tab-num">3</span></button><button class="tab " data-tab="d2" onclick="showTab('d2')" style="--accent:#4A6FA5"><span class="tab-date">Tue</span><span class="tab-num">4</span></button><button class="tab " data-tab="d3" onclick="showTab('d3')" style="--accent:#C89B3C"><span class="tab-date">Wed</span><span class="tab-num">5</span></button><button class="tab " data-tab="d4" onclick="showTab('d4')" style="--accent:#C89B3C"><span class="tab-date">Thu</span><span class="tab-num">6</span></button><button class="tab " data-tab="d5" onclick="showTab('d5')" style="--accent:#C1622D"><span class="tab-date">Fri</span><span class="tab-num">7</span></button><button class="tab " data-tab="d6" onclick="showTab('d6')" style="--accent:#C1622D"><span class="tab-date">Sat</span><span class="tab-num">8</span></button><button class="tab " data-tab="d7" onclick="showTab('d7')" style="--accent:#5B7A6B"><span class="tab-date">Sun</span><span class="tab-num">9</span></button><button class="tab" data-tab="map" onclick="showTab('map')" style="--accent:#1B3A5C"><span class="tab-date">Map</span><span class="tab-num">🗺</span></button><button class="tab" data-tab="info" onclick="showTab('info')" style="--accent:#1B3A5C"><span class="tab-date">Trip</span><span class="tab-num">ℹ</span></button><button class="tab" data-tab="kids" onclick="showTab('kids')" style="--accent:#B08D57"><span class="tab-date">Kids</span><span class="tab-num">🎈</span></button>
+</nav>
 
-<div class="tabs">
-<div class="tab active" onclick="switchTab('mon')">Mon 3</div>
-<div class="tab" onclick="switchTab('tue')">Tue 4</div>
-<div class="tab" onclick="switchTab('wed')">Wed 5</div>
-<div class="tab" onclick="switchTab('thu')">Thu 6</div>
-<div class="tab" onclick="switchTab('fri')">Fri 7</div>
-<div class="tab" onclick="switchTab('sat')">Sat 8</div>
-<div class="tab" onclick="switchTab('sun')">Sun 9</div>
-<div class="tab" onclick="switchTab('info')">Trip Info</div>
-</div>
+<main>
+  
+    <section class="panel active" id="panel-d1" style="--accent:#4A6FA5">
+      <div class="panel-head">
+        <div class="stamp">3<span>AUG</span></div>
+        <div>
+          <div class="panel-date">Mon 3 Aug</div>
+          <div class="panel-title">Home → Dover → Calais → Lille</div>
+        </div>
+      </div>
+      <div class="schedule">
+        
+        <div class="sched-row">
+          <div class="sched-time">6:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Leave Wanstead for Dover</div>
+            <div class="note">~1h45 with buffer for traffic/parking</div>
+            
+          </div>
+        </div>
 
-<div class="content">
+        <div class="sched-row">
+          <div class="sched-time">7:45am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Arrive Dover</div>
+            <div class="note">Check in for the ferry</div>
+            
+          </div>
+        </div>
 
-<!-- MONDAY -->
-<div id="mon" style="display:none;">
-<div class="day-title">Monday 3 August — Wanstead to Lille</div>
+        <div class="sched-row">
+          <div class="sched-time">9:45am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Ferry departs Dover</div>
+            <div class="note">P&O Liberte</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">8:00am</div>
-<div class="sched-body">
-<div class="sched-desc">Depart Wanstead</div>
-<div class="note">Head to Dover for ferry. Car LN66WJM</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">12:15pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Arrive Calais</div>
+            <div class="note">Local time</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">12:30pm</div>
-<div class="sched-body">
-<div class="sched-desc">P&O Dover–Calais ferry</div>
-<div class="note">~90 min crossing. Lunch on board</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">12:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Drive to Lille</div>
+            <div class="note">~1h10</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">3:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Arrive Calais, drive to Lille</div>
-<div class="note">~1 hour drive. Local parking near Vieux Lille</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">1:45pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Arrive Lille</div>
+            <div class="note">Supermarket stop for breakfast/lunch supplies</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">4:30–6:30pm</div>
-<div class="sched-body">
-<div class="sched-desc">Explore Vieux Lille</div>
-<div class="note">Wander cobbled streets, chocolate shops, squares</div>
-</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">2:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Check into the flat</div>
+            <div class="note">Drop bags</div>
+            
+          </div>
+        </div>
 
-<!-- TUESDAY -->
-<div id="tue" style="display:none;">
-<div class="day-title">Tuesday 4 August — Lille</div>
+        <div class="sched-row">
+          <div class="sched-time">3:00–5:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Parc de la Citadelle & Zoo de Lille</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('citadelle')">Parc de la Citadelle →</button><button class="chip" onclick="openActivity('zoo')">Zoo de Lille →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">8:00am</div>
-<div class="sched-body">
-<div class="sched-desc">Breakfast at the hotel</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">6:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Dinner in Vieux Lille</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('vieuxlille')">Vieux Lille →</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel " id="panel-d2" style="--accent:#4A6FA5">
+      <div class="panel-head">
+        <div class="stamp">4<span>AUG</span></div>
+        <div>
+          <div class="panel-date">Tue 4 Aug</div>
+          <div class="panel-title">Lille — full day</div>
+        </div>
+      </div>
+      <div class="schedule">
+        
+        <div class="sched-row">
+          <div class="sched-time">8:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Breakfast at the flat</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">9:30am–11:30am</div>
-<div class="sched-body">
-<div class="sched-desc">Zoo de Lille</div>
-<div class="note">Free entry. Parc de la Citadelle. NOTE: Zoo closed Tuesdays — plan alternative</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">9:30am–12:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Vieux Lille</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('vieuxlille')">Vieux Lille →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">12:00–1:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Lunch</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">12:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Lunch</div>
+            <div class="note">Picnic or café</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">1:30–4:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Parc de la Citadelle or Vieux Lille wander</div>
-<div class="note">Playgrounds, lake, wide lawns</div>
-</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">1:30–4:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Citadelle boating lake / Koezio</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('citadelle')">Parc de la Citadelle →</button></div>
+          </div>
+        </div>
 
-<!-- WEDNESDAY -->
-<div id="wed" style="display:none;">
-<div class="day-title">Wednesday 5 August — Lille to Bruges</div>
+        <div class="sched-row">
+          <div class="sched-time">6:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Dinner</div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel " id="panel-d3" style="--accent:#C89B3C">
+      <div class="panel-head">
+        <div class="stamp">5<span>AUG</span></div>
+        <div>
+          <div class="panel-date">Wed 5 Aug</div>
+          <div class="panel-title">Lille → Bruges</div>
+        </div>
+      </div>
+      <div class="schedule">
+        
+        <div class="sched-row">
+          <div class="sched-time">8:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Breakfast, pack up</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">10:00–11:00am</div>
-<div class="sched-body">
-<div class="sched-desc">Drive to Bruges</div>
-<div class="note">~1 hour</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">10:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Checkout Lille flat</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">11:00–11:30am</div>
-<div class="sched-body">
-<div class="sched-desc">Carrefour Market, Sint-Andries</div>
-<div class="note">En route · Torhoutse Steenweg 130 · stock groceries</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">10:00–11:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Drive to Bruges</div>
+            <div class="note">~1hr</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">11:30am–3:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Arrive Bruges, explore Markt, lunch</div>
-<div class="note">Early arrival · bags in car · check-in from 3pm</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">11:00–11:30am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Carrefour Market, Sint-Andries</div>
+            <div class="note">En route · Torhoutse Steenweg 130 · stock up for the hotel</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">3:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Check into Golden Tulip Hotel de' Medici</div>
-<div class="note">Potterierei 15 · Parking €25/day (first-come, first-served)</div>
-<div class="chips"><button class="chip" onclick="openActivity('bruges_hotel')">Hotel info →</button></div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">11:30am–3:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Arrive Bruges, explore the Markt, lunch</div>
+            <div class="note">Early arrival gives plenty of time before 3pm check-in — bags stay in car</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">3:30–5:30pm</div>
-<div class="sched-body">
-<div class="sched-desc">Free time — rest, settle in</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">3:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Check into Golden Tulip Hotel de' Medici</div>
+            <div class="chips"><button class="chip" onclick="openActivity('bruges_hotel')">Hotel facilities →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">6:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Dinner</div>
-</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">3:30–5:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Markt Square & canal-side walk</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('markt')">Markt, Bruges →</button></div>
+          </div>
+        </div>
 
-<!-- THURSDAY -->
-<div id="thu" style="display:block;">
-<div class="day-title">Thursday 6 August — Bruges</div>
+        <div class="sched-row">
+          <div class="sched-time">6:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Dinner + Belgian waffles</div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel " id="panel-d4" style="--accent:#C89B3C">
+      <div class="panel-head">
+        <div class="stamp">6<span>AUG</span></div>
+        <div>
+          <div class="panel-date">Thu 6 Aug</div>
+          <div class="panel-title">Bruges — full day</div>
+        </div>
+      </div>
+      <div class="schedule">
+        
+        <div class="sched-row">
+          <div class="sched-time">8:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Breakfast at the hotel</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">10:15–11:45am</div>
-<div class="sched-body">
-<div class="sched-desc">Choco-Story chocolate museum</div>
-<div class="note">Booked · Wijnzakstraat 2 · €16/adult, €10/child</div>
-<div class="chips"><button class="chip" onclick="openActivity('choco')">Museum info →</button></div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">9:45–10:15am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Walk to Choco-Story</div>
+            <div class="note">~15 min from the hotel</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">11:45am–12:45pm</div>
-<div class="sched-body">
-<div class="sched-desc">Lunch near the Markt</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">10:15–11:45am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Choco-Story chocolate museum</div>
+            <div class="note">Booked slot · €16/adult, €10/child · includes demo & tasting</div>
+            <div class="chips"><button class="chip" onclick="openActivity('choco')">Choco-Story →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">12:45–1:15pm</div>
-<div class="sched-body">
-<div class="sched-desc">Canal boat tour</div>
-<div class="note">Rozenhoedkaai · Pay on the spot · €15/adult, €9/child</div>
-<div class="chips"><button class="chip" onclick="openActivity('canal')">Tour info →</button></div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">11:45am–12:45pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Lunch near the Markt</div>
+            <div class="note">Easy walk from Choco-Story, no rush</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">1:15–3:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Free wander — Markt, shops, street performers</div>
-<div class="note">Downtime before the climb</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">12:45–1:15pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Canal boat tour</div>
+            <div class="note">Pay on the spot at Rozenhoedkaai · €15/adult, €9/child · 30 min</div>
+            <div class="chips"><button class="chip" onclick="openActivity('canal')">Bruges Canal Boat Tour →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">5:20–5:40pm</div>
-<div class="sched-body">
-<div class="sched-desc">Belfry of Bruges</div>
-<div class="note">Booked time slot · 2 adults €16 + Jacob €14 = €46</div>
-<div class="chips"><button class="chip" onclick="openActivity('belfry')">Climb info →</button></div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">1:15–3:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Free wander — Markt, shops, street performers</div>
+            <div class="note">Proper downtime, rest before the climb</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">7:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Horse-drawn carriage tour</div>
-<div class="note">Market Square · Pay cash · €70/carriage (max 5 people)</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">5:20–5:40pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Belfry climb</div>
+            <div class="note">Booked time slot · 2 adults €16 + Jacob €14 = €46 · 366 steps</div>
+            <div class="chips"><button class="chip" onclick="openActivity('belfry')">Belfry of Bruges →</button></div>
+          </div>
+        </div>
 
-<div class="tip">
-<div class="tip-title">Thursday Costs</div>
-<div class="tip-text">Canal boat: €48 · Choco-Story: €52 · Belfry: €46 · Horse carriage: €70 · <strong>Total: €216</strong></div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">7:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Horse-drawn carriage tour around Bruges</div>
+            <div class="note">Pay on the spot at Markt · €70/carriage (max 5 people) · ~30 min ride</div>
+          </div>
+        </div>
 
-<div class="tip">
-<span class="kid-tag jacob">Jacob (8)</span>
-<div class="tip-text">Canal boat and chocolate tasting are highlights. Belfry climb is a one-on-one adventure for you two.</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">6:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Dinner, waffles</div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel " id="panel-d5" style="--accent:#C1622D">
+      <div class="panel-head">
+        <div class="stamp">7<span>AUG</span></div>
+        <div>
+          <div class="panel-date">Fri 7 Aug</div>
+          <div class="panel-title">Bruges → The Hague</div>
+        </div>
+      </div>
+      <div class="schedule">
+        
+        <div class="sched-row">
+          <div class="sched-time">8:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Breakfast, pack</div>
+            
+            
+          </div>
+        </div>
 
-<div class="tip">
-<span class="kid-tag noah">Noah (5)</span>
-<div class="tip-text">Canal boat is short and novel. Chocolate tasting is a win. Skip the Belfry — watch street performers and carriages from the square.</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">10:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Checkout Bruges</div>
+            <div class="note">Window 07:00–11:00</div>
+            
+          </div>
+        </div>
 
-<!-- FRIDAY -->
-<div id="fri" style="display:none;">
-<div class="day-title">Friday 7 August — Bruges to The Hague</div>
+        <div class="sched-row">
+          <div class="sched-time">10:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Drive to The Hague</div>
+            <div class="note">~2h15</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">8:00am</div>
-<div class="sched-body">
-<div class="sched-desc">Breakfast and check out</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">12:15pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Arrive The Hague area</div>
+            <div class="note">Lunch, walk the promenade while waiting for check-in</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">9:30am–12:30pm</div>
-<div class="sched-body">
-<div class="sched-desc">Drive to The Hague</div>
-<div class="note">~1.5 hours</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">3:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Check into Novotel World Forum</div>
+            <div class="chips"><button class="chip" onclick="openActivity('hague_hotel')">Hotel facilities →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">3:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Check into Novotel World Forum</div>
-<div class="note">Johan de Wittlaan 42-44 · On-site parking €22–30/day</div>
-<div class="chips"><button class="chip" onclick="openActivity('hague_hotel')">Hotel info →</button></div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">3:30–6:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Scheveningen beach & pier</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('pier')">Scheveningen Beach & Pier →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">3:30–5:30pm</div>
-<div class="sched-body">
-<div class="sched-desc">Beach or rest</div>
-</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">7:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Dinner by the beach</div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel " id="panel-d6" style="--accent:#C1622D">
+      <div class="panel-head">
+        <div class="stamp">8<span>AUG</span></div>
+        <div>
+          <div class="panel-date">Sat 8 Aug</div>
+          <div class="panel-title">The Hague / Scheveningen</div>
+        </div>
+      </div>
+      <div class="schedule">
+        
+        <div class="sched-row">
+          <div class="sched-time">8:30am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Breakfast at the hotel</div>
+            
+            
+          </div>
+        </div>
 
-<!-- SATURDAY -->
-<div id="sat" style="display:none;">
-<div class="day-title">Saturday 8 August — The Hague / Scheveningen</div>
+        <div class="sched-row">
+          <div class="sched-time">9:30am–12:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Madurodam</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('madurodam')">Madurodam →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">9:30am–12:30pm</div>
-<div class="sched-body">
-<div class="sched-desc">Madurodam</div>
-<div class="note">Miniature park · 1:25 scale models · Book online</div>
-<div class="chips"><button class="chip" onclick="openActivity('madurodam')">Park info →</button></div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">1:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Lunch</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">1:00–2:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Lunch</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">2:00–5:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Scheveningen beach, pier funfair</div>
+            
+            <div class="chips"><button class="chip" onclick="openActivity('pier')">Scheveningen Beach & Pier →</button></div>
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">2:00–4:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Scheveningen Beach & Pier</div>
-<div class="note">Rides open from 11am · Ferris wheel, paddling, sandcastles</div>
-<div class="chips"><button class="chip" onclick="openActivity('pier')">Pier info →</button></div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">6:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Dinner</div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="panel " id="panel-d7" style="--accent:#5B7A6B">
+      <div class="panel-head">
+        <div class="stamp">9<span>AUG</span></div>
+        <div>
+          <div class="panel-date">Sun 9 Aug</div>
+          <div class="panel-title">The Hague → Calais → Dover → Home</div>
+        </div>
+      </div>
+      <div class="schedule">
+        
+        <div class="sched-row">
+          <div class="sched-time">7:30am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Breakfast, pack</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">6:30pm</div>
-<div class="sched-body">
-<div class="sched-desc">Dinner</div>
-</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">9:00am</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Depart hotel</div>
+            <div class="note">Drive is ~3h15 — longer than the 3hr guideline, leave in good time</div>
+            
+          </div>
+        </div>
 
-<!-- SUNDAY -->
-<div id="sun" style="display:none;">
-<div class="day-title">Sunday 9 August — Return to UK</div>
+        <div class="sched-row">
+          <div class="sched-time">9:00am–12:15pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Drive to Calais</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">8:00am</div>
-<div class="sched-body">
-<div class="sched-desc">Breakfast and check out</div>
-<div class="note">Pack car Saturday night</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">12:15–1:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Lunch / comfort stop near Calais</div>
+            
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">9:15am</div>
-<div class="sched-body">
-<div class="sched-desc">Depart for Calais ferry</div>
-<div class="note">~3h 15m drive · P&O ferry 2:00pm · Car LN66WJM</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">1:15pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Arrive Calais port</div>
+            <div class="note">Check in 90–120 min before departure</div>
+            
+          </div>
+        </div>
 
-<div class="sched-row">
-<div class="sched-time">5:00–6:00pm</div>
-<div class="sched-body">
-<div class="sched-desc">Arrive Dover</div>
-</div>
-</div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">3:00pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Ferry departs Calais</div>
+            
+            
+          </div>
+        </div>
 
-<!-- TRIP INFO -->
-<div id="info" style="display:none;">
-<h2>Trip Info & Costs</h2>
+        <div class="sched-row">
+          <div class="sched-time">3:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Arrive Dover</div>
+            <div class="note">UK time</div>
+            
+          </div>
+        </div>
 
-<div class="tip">
-<div class="tip-title">Thursday 6 Aug — Bruges Activity Costs</div>
-<div class="tip-text"><strong>Canal boat</strong> (2×€15 + 2×€9): €48 · <strong>Choco-Story</strong> (2×€16 + 2×€10): €52 · <strong>Belfry</strong> (2×€16 + €14): €46 · <strong>Horse carriage</strong>: €70 · <strong>Day total: €216</strong></div>
-</div>
+        <div class="sched-row">
+          <div class="sched-time">3:30–5:30pm</div>
+          <div class="sched-line"><span class="dot"></span><span class="line"></span></div>
+          <div class="sched-body">
+            <div class="sched-desc">Drive home to Wanstead</div>
+            <div class="note">~1.5–2hrs</div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="tip">
-<div class="tip-title">Bruges — Golden Tulip Hotel de' Medici</div>
-<div class="tip-text">Potterierei 15 · Check-in 3pm, check-out 11am · Parking €25/day (first-come, first-served). Rooms: mini fridge, tea/coffee, TV, AC, WiFi, safe. Hotel: free breakfast, restaurant, bar, Turkish steam bath, Jacuzzi.</div>
-</div>
+  <section class="map-panel" id="panel-map">
+    <div class="map-subtabs">
+      <button class="map-subtab active" data-map="route" onclick="showMap('route')">Full Route</button>
+      <button class="map-subtab" data-map="lille" onclick="showMap('lille')">Lille</button>
+      <button class="map-subtab" data-map="bruges" onclick="showMap('bruges')">Bruges</button>
+      <button class="map-subtab" data-map="schev" onclick="showMap('schev')">Scheveningen</button>
+    </div>
+    <div class="map-view active" id="map-route">
+      <div class="leaflet-map" id="leaflet-route"></div>
+    </div>
+    <div class="map-view" id="map-lille">
+      <div class="leaflet-map" id="leaflet-lille"></div>
+    </div>
+    <div class="map-view" id="map-bruges">
+      <div class="leaflet-map" id="leaflet-bruges"></div>
+    </div>
+    <div class="map-view" id="map-schev">
+      <div class="leaflet-map" id="leaflet-schev"></div>
+    </div>
+  </section>
 
-<div class="tip">
-<div class="tip-title">The Hague — Novotel World Forum</div>
-<div class="tip-text">Johan de Wittlaan 42-44 · Check-in 3pm, check-out 11am · On-site parking €22–30/day. Rooms: mini-bar, tea/coffee, TV, AC, WiFi, safe. Hotel: free breakfast, restaurant, bar, gym, sauna.</div>
-</div>
+  <section class="info-panel" id="panel-info">
+    <h2>Bookings</h2>
+    <div class="book-row"><div><div class="book-name">Ferry</div><div class="book-detail">P&O, Dover ↔ Calais</div></div><div class="book-price">£242.00 · paid</div></div><div class="book-row"><div><div class="book-name">Lille</div><div class="book-detail">Airbnb near Flandres station</div></div><div class="book-price">£283.26 · paid</div></div><div class="book-row"><div><div class="book-name">Bruges</div><div class="book-detail">Golden Tulip Hotel de' Medici</div></div><div class="book-price">€478.66</div></div><div class="book-row"><div><div class="book-name">The Hague</div><div class="book-detail">Novotel World Forum</div></div><div class="book-price">€349.11</div></div>
 
-</div>
+    <h2>Book before you go</h2>
+    <div class="tip"><div class="tip-title">Madurodam — timed entry required</div><div class="tip-text">Only sold online with a time slot, not at the gate. Worth booking now, especially for Jacob's birthday (Sat 8 Aug) so you've got a guaranteed slot that day.<br><a class="prebook-link" href="https://www.madurodam.nl/en/tickets" target="_blank" rel="noopener">madurodam.nl/en/tickets →</a></div></div>
+    <div class="tip"><div class="tip-title">Belfry of Bruges — book a time slot</div><div class="tip-text">Gets busy, especially in August, and the official site recommends booking ahead to guarantee entry.<br><a class="prebook-link" href="https://www.museabrugge.be/en/visit/locations/belfort" target="_blank" rel="noopener">museabrugge.be/en/visit/locations/belfort →</a></div></div>
+    <div class="tip"><div class="tip-title">Choco-Story — book online</div><div class="tip-text">Includes a live chocolate-making demo; booking ahead means you can pick a demo time rather than just turning up.<br><a class="prebook-link" href="https://choco-story-brugge.be/en/tickets-e/" target="_blank" rel="noopener">choco-story-brugge.be/en/tickets →</a></div></div>
+    <div class="tip"><div class="tip-title">Bruges canal boat — no pre-booking needed</div><div class="tip-text">Tickets are sold on the day only, directly at the landing stages (e.g. Rozenhoedkaai) — nothing to arrange in advance. Just budget a short queue in peak season.</div></div>
+    <div class="tip"><div class="tip-title">Thu 6 Aug activity costs — Bruges</div><div class="tip-text">Canal boat (2 adults + Jacob + Noah): 2×€15 + 2×€9 = <b>€48</b><br>Choco-Story (all 4): 2×€16 + 2×€10 = <b>€52</b><br>Belfry (2 adults + Jacob, booked 17:20-17:40): 2×€16 + €14 = <b>€46</b><br>Horse carriage (all 4, evening): €70 for full carriage = <b>€70</b><br><b>Day total: €216</b></div></div>
+    <div class="tip"><div class="tip-title">GHIC (health cover in the EU) — still outstanding</div><div class="tip-text">Free, but takes a little time to arrive by post — apply now if you haven't already. Every family member needs their own card.<br><a class="prebook-link" href="https://www.nhs.uk/using-the-nhs/healthcare-abroad/apply-for-a-free-uk-global-health-insurance-card-ghic/" target="_blank" rel="noopener">nhs.uk — apply for GHIC →</a></div></div>
+    <div class="tip"><div class="tip-title">Travel insurance — still outstanding</div><div class="tip-text">Not something GHIC replaces — worth sorting before departure, ideally with cover for the driving leg through 3 countries.</div></div>
+    <div class="tip"><div class="tip-title">Warning triangle &amp; hi-vis vests — pack, don't book</div><div class="tip-text">Legally required in the car for France and Belgium. One vest per adult recommended if stopped roadside. Check these are in the car before Monday.</div></div>
 
-</div>
+    <h2>Parking</h2>
+    <div class="tip"><div class="tip-title">Lille — booked: Le 31 car park (Indigo)</div><div class="tip-text">6 Rue de la Rivierette, 59800 Lille. Booked <b>Mon 3 Aug, 16:30</b> → <b>Wed 5 Aug, 09:30</b>. No ticket needed — barrier opens automatically via number plate recognition for <b>LN66WJM</b>. Customer ref: 22322559. Max height 1.9m.<br><a class="prebook-link" href="https://www.indigoneo.fr" target="_blank" rel="noopener">indigoneo.fr →</a></div></div>
+    <div class="tip"><div class="tip-title">Bruges — hotel garage, no booking possible</div><div class="tip-text">Golden Tulip Hotel de' Medici has private underground parking for ~35 cars, €25/day. First-come, first-served — no reservation possible, so email the hotel your arrival time in advance to improve your chances of a space. Street parking nearby as backup.</div></div>
+    <div class="tip"><div class="tip-title">Bruges — hotel room & facilities</div><div class="tip-text"><b>Room:</b> Mini fridge bar, tea/coffee making, flat-screen TV, air conditioning, free WiFi, in-room safe, work desk, iron with ironing board. <b>Bathroom:</b> Separate toilet & shower, hairdryer, bath sheets. <b>Hotel:</b> Free breakfast buffet, restaurant, bar, Turkish steam bath, Jacuzzi, wellness centre. Address: Potterierei 15 · Check-in 3pm, check-out 11am.</div></div>
+    <div class="tip"><div class="tip-title">The Hague/Scheveningen — hotel/nearby parking</div><div class="tip-text">Novotel The Hague World Forum has on-site or adjacent parking, roughly €22–30/day. Reservation isn't usually needed — this is the most straightforward of the three stops.</div></div>
 
-</div>
+    <h2>Tips</h2>
+    <div class="tip"><div class="tip-title">Sunday is the pinch point</div><div class="tip-text">Pack the car the night before so Sunday morning is just breakfast-and-go — the drive and ferry leave no room for a scramble.</div></div><div class="tip"><div class="tip-title">Don't over-fill Bruges Thursday</div><div class="tip-text">If energy's flagging by early afternoon, drop the Belfry climb without guilt — Bruges rewards wandering more than ticking off sights.</div></div><div class="tip"><div class="tip-title">Leave one slot unplanned</div><div class="tip-text">Ideally somewhere with a playground or open space. Great as a buffer if a drive runs long or a nap is needed.</div></div><div class="tip"><div class="tip-title">Carry cash for parking</div><div class="tip-text">Some smaller town centre meters in France and Belgium aren't card-only.</div></div><div class="tip"><div class="tip-title">Download offline maps</div><div class="tip-text">For each region, in case of patchy signal on the drives.</div></div><div class="tip"><div class="tip-title">Eat your big meal at lunch</div><div class="tip-text">Cheaper, less rushed with kids, and frees up evenings to wind down.</div></div>
+  </section>
 
-<!-- MODAL -->
-<div id="activityModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeActivity()">&times;</span>
-<div id="modalTitle" class="modal-title"></div>
-<div id="modalTag" class="modal-tag"></div>
-<div id="modalText" class="modal-text"></div>
-<div id="modalTip" class="modal-tip"></div>
-</div>
+  <section class="info-panel" id="panel-kids">
+    <div class="birthday-box">
+      <div class="tip-title">🎂 Jacob's Birthday — Saturday 8 Aug</div>
+      <div class="tip-text">Falls right in the middle of the Hague/Scheveningen leg, so there's room to make it a proper day without extra driving. A few ways to shape it:</div>
+    </div>
+    <div class="tip"><div class="tip-title">Morning: presents at the hotel</div><div class="tip-text">Let him open a gift or two over breakfast before heading out — no rush, no travel day to compete with.</div></div>
+    <div class="tip"><div class="tip-title">Daytime: Madurodam as the birthday outing</div><div class="tip-text">It's already on the itinerary for this leg — frame it as "Jacob's birthday trip to Madurodam" and it becomes the day's main event rather than just another stop. The mini-airport and boat rides are the highlights for his age.</div></div>
+    <div class="tip"><div class="tip-title">Afternoon: beach time + a treat</div><div class="tip-text">Scheveningen beach and pier in the afternoon, with an ice cream or funfair ride on the pier as a birthday extra.</div></div>
+    <div class="tip"><div class="tip-title">Evening: let him pick dinner</div><div class="tip-text">A relaxed seafront restaurant where he chooses the spot — low-key but makes the day feel special without needing a big reservation.</div></div>
+    <div class="tip"><div class="tip-title">Small extras worth packing</div><div class="tip-text">A few candles and a lighter/matches for a hotel-room cake moment, a couple of wrapped cards, and maybe a small inflatable or beach toy he can unwrap and use that same afternoon.</div></div>
+
+    <h2>For Jacob (8)</h2>
+    <div class="tip"><span class="kid-tag jacob">Lille</span><div class="tip-text">Old enough to enjoy the zoo properly and remember the animals — the reptile house especially. Good energy for a full lap of the Citadelle park too.</div></div>
+    <div class="tip"><span class="kid-tag jacob">Bruges</span><div class="tip-text">The Belfry climb (366 steps) is a good one-on-one adventure with a parent — Noah's too young for it, so it can be "Jacob's big climb." He'll likely enjoy the canal boat and the chocolate-making demo at Choco-Story too.</div></div>
+    <div class="tip"><span class="kid-tag jacob">The Hague/Scheveningen</span><div class="tip-text">Madurodam's model railway and airport will hold his attention longer than Noah's. On the pier, he's likely old enough for some of the bigger rides.</div></div>
+
+    <h2>For Noah (5)</h2>
+    <div class="tip"><span class="kid-tag noah">Lille</span><div class="tip-text">Free entry and a short visit length make the zoo low-pressure for a 5-year-old's attention span. The Citadelle's playground and pedal boats are likely to be a bigger hit than the zoo itself.</div></div>
+    <div class="tip"><span class="kid-tag noah">Bruges</span><div class="tip-text">The canal boat tour is short, novel, and doesn't require much stamina — a good fit. Skip the Belfry climb with him; the Markt square below has horse-drawn carriages and street performers to watch instead. Choco-Story's tasting at the end is an easy win.</div></div>
+    <div class="tip"><span class="kid-tag noah">The Hague/Scheveningen</span><div class="tip-text">Madurodam is still great at 5 — plenty to look at even without following every detail. The beach is likely the highlight of this leg for him: sandcastles and paddling need no explanation.</div></div>
+  </section>
+</main>
+
+<div class="overlay" id="overlay" onclick="if(event.target===this) closeActivity()">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-tag" id="sheet-tag"></div>
+    <div class="sheet-name" id="sheet-name"></div>
+    <div class="sheet-text" id="sheet-text"></div>
+    <div class="sheet-tip-label">Family tip</div>
+    <div class="sheet-text" id="sheet-tip"></div>
+    <button class="sheet-close" onclick="closeActivity()">Close</button>
+  </div>
 </div>
 
 <script>
-const activities = {"canal":{"name":"Bruges Canal Boat Tour","tag":"Bruges · 30 min · €15/€9","text":"A boat ride along Bruges' canals, passing under low bridges and past centuries-old merchant houses. One of the best ways to see the city. Board at Rozenhoedkaai. No pre-booking — buy tickets on the spot. €15 per adult, €9 per child (4–11).","tip":"Go early morning before queues build. Sit near the front for best photos."},"choco":{"name":"Choco-Story","tag":"Bruges · ~1.5hrs · €16/€10","text":"Interactive museum tracing chocolate from bean to bar, with live demo and tasting. Indoors and air-conditioned. Address: Wijnzakstraat 2, a 3–5 min walk from boat stops. €16 per adult, €10 per child (3–11).","tip":"Book online in advance. Time your visit around the live demo."},"belfry":{"name":"Belfry of Bruges","tag":"Bruges · 366 steps · €15/€13","text":"Medieval bell tower with 366 narrow steps to the top. Panoramic city views. €15 per adult, €13 for ages 7–17 (Jacob), free under 6 (Noah). A genuine climb, 45 min.","tip":"One parent takes Jacob up while other waits in the square below with Noah."},"bruges_hotel":{"name":"Golden Tulip Hotel de' Medici","tag":"Bruges · 4-star · Potterierei 15","text":"Rooms feature mini fridge, tea/coffee, flat-screen TV, AC, free WiFi, in-room safe, work desk. Bathrooms: separate toilet & shower, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant, bar, Turkish steam bath, Jacuzzi, wellness centre. Check-in 3pm, check-out 11am.","tip":"Located on quiet canal, 10–15 min walk from Grote Markt. Parking €25/day (first-come, first-served — email hotel your arrival time)."},"madurodam":{"name":"Madurodam","tag":"The Hague · Miniature park · 1:25 scale","text":"Miniature park featuring Holland's most famous landmarks, canals, and even a working mini-airport. Genuinely one of the best attractions for kids this age. Summer hours typically 9am–6pm.","tip":"Arrive at opening to beat coach tour groups. Check daily show schedule at entrance."},"pier":{"name":"Scheveningen Beach & Pier","tag":"The Hague · Seaside · Rides from 11am","text":"North Sea beach resort with sandy beach, pier with rides, Ferris wheel, and casual seafront food. Close enough to walk from hotel. Rides typically open 11am–10pm in summer.","tip":"North Sea is bracing even in August. Bring windbreaks and towels. Save rides for early evening when cooler."},"hague_hotel":{"name":"Novotel World Forum","tag":"The Hague · 4-star · Johan de Wittlaan 42-44","text":"Rooms feature mini-bar, tea/coffee, flat-screen TV with satellite, AC, free WiFi, in-room safe, telephone, iron. Bathrooms: walk-in shower, separate toilet, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant, bar, gym (surcharge), sauna (surcharge). Check-in 3pm, check-out 11am.","tip":"On World Forum Convention Centre, 4 min drive from Scheveningen Beach. On-site parking €22–30/day (no pre-booking needed)."}};
+  const activities = {"zoo": {"name": "Zoo de Lille", "tag": "Lille \u00b7 Free entry", "text": "A free, compact city zoo in the heart of Parc de la Citadelle, home to big cats, primates, and a well-regarded reptile house. It's small enough to see everything in 1.5\u20132 hours without little legs getting tired, and the free entry makes it an easy, low-pressure stop.", "tip": "Go first thing when it opens to beat the heat and crowds, and combine it with the park next door so you only need to park once. Bring a picnic to eat by the lake afterwards rather than paying for food inside."}, "citadelle": {"name": "Parc de la Citadelle", "tag": "Lille", "text": "A huge green park surrounding a star-shaped 17th-century fortress, with playgrounds, wide lawns, and a boating lake right next to the zoo. It's the kind of space where kids can properly run around after a day of driving or sightseeing.", "tip": "Hire a pedal boat on the lake if the weather's good \u2014 a genuine highlight for kids and cheap compared to paid attractions. Pack swimwear in case splash areas are open in August."}, "vieuxlille": {"name": "Vieux Lille", "tag": "Lille \u00b7 Old town", "text": "The old town's cobbled streets, pastel Flemish-style townhouses, and the Grand Place make for an easy, no-agenda wander. It's full of chocolate shops, waffle stands, and small squares to stop and let the kids burn energy.", "tip": "Don't over-plan this one \u2014 treat it as a slow amble with stops for treats. Late afternoon light is lovely for photos, and it's a good option after a bigger activity earlier in the day."}, "canal": {"name": "Bruges Canal Boat Tour", "tag": "Bruges \u00b7 30 min \u00b7 \u20ac15/\u20ac9", "text": "A boat ride along Bruges' canals, passing under low bridges and past centuries-old merchant houses \u2014 one of the best ways to see the city and genuinely fun for kids who like being on the water. Board at Rozenhoedkaai (or Wollestraat), a 12\u201315 min walk from the hotel. No pre-booking \u2014 buy tickets on the spot at the jetty (cash, card or Payconiq). \u20ac15 per adult, \u20ac9 per child (4\u201311).", "tip": "Go first thing in the morning (around 9:30am) before the queues build, and sit near the front for the best photos and to hear the guide clearly."}, "choco": {"name": "Choco-Story", "tag": "Bruges \u00b7 ~1.5hrs \u00b7 \u20ac16/\u20ac10", "text": "An interactive museum tracing chocolate from cacao bean to bar, with a live chocolate-making demonstration and a tasting included \u2014 a guaranteed hit with kids. Indoors and air-conditioned. Address: Wijnzakstraat 2, a 3\u20135 min walk from the Rozenhoedkaai/Wollestraat boat stops. \u20ac16 per adult, \u20ac10 per child (3\u201311). It's a museum and tasting, not a lunch stop \u2014 grab lunch near the Markt afterwards.", "tip": "Book tickets online in advance to skip the queue, and time your visit around a live chocolate-making demonstration for the best experience."}, "belfry": {"name": "Belfry of Bruges", "tag": "Bruges \u00b7 366 steps \u00b7 \u20ac15/\u20ac13", "text": "An 83-metre medieval bell tower on the Markt with 366 narrow, winding steps to the top, rewarding you with the best panoramic view in the city. A genuine climb, not really practical for a 5-year-old. A 3\u20135 min walk from Choco-Story. \u20ac15 per adult, \u20ac13 for ages 7\u201317 (so Jacob), free under 6 (so Noah, though he's sitting this one out).", "tip": "Consider one parent taking the older boy up while the other waits in the square below \u2014 there's plenty to watch at ground level, including street performers and market stalls."}, "markt": {"name": "Markt, Bruges", "tag": "Bruges \u00b7 Main square", "text": "The historic heart of Bruges \u2014 the Belfry, colourful guild houses, horse-drawn carriages and cafe terraces all in one square. Everything else in the old town is within a few minutes' walk from here.", "tip": "Great base to orient yourselves on arrival. Grab a table on the square for a first evening drink while the kids watch the carriages go by."}, "madurodam": {"name": "Madurodam", "tag": "The Hague \u00b7 Miniature park", "text": "A miniature park in Scheveningen featuring 1:25 scale models of Holland's most famous landmarks, canals, and even a working mini-airport \u2014 genuinely one of the best attractions in the Netherlands for kids this age.", "tip": "Arrive at opening to get ahead of coach tour groups, and check the daily show/event schedule at the entrance so you don't miss any timed activities."}, "pier": {"name": "Scheveningen Beach & Pier", "tag": "The Hague \u00b7 Seaside", "text": "A proper North Sea beach resort with a long sandy beach, a pier with rides and a Ferris wheel, and plenty of casual food right on the seafront. Close enough to walk from the hotel.", "tip": "The North Sea is bracing even in August \u2014 pack windbreaks/towels and treat it as a paddling-and-sandcastles beach. Save the pier rides for early evening when it's cooler."}, "bruges_hotel": {"name": "Golden Tulip Hotel de' Medici", "tag": "Bruges \u00b7 4-star \u00b7 Potterierei 15", "text": "All rooms feature a mini fridge bar, tea/coffee making facilities, flat-screen TV, air conditioning, free WiFi, in-room safe, work desk, and iron with ironing board. Bathrooms have a separate toilet & shower, hairdryer, and bath sheets. Hotel offers: free breakfast buffet daily, restaurant, bar/lounge, Turkish steam bath, Jacuzzi, wellness centre.", "tip": "Check-in 3pm, check-out 11am. Located on a quiet canal, only 10\u201315 min walk from the Grote Markt. Ask for a room facing the garden for a quieter night. Parking: \u20ac25/day (first-come, first-served; email hotel your arrival time in advance)."}, "hague_hotel": {"name": "Novotel World Forum", "tag": "The Hague \u00b7 4-star \u00b7 Johan de Wittlaan 42-44", "text": "All 216 rooms feature a mini-fridge bar, tea/coffee making facilities, flat-screen TV with satellite, air conditioning, free WiFi, in-room safe, telephone, and iron. Bathrooms have a walk-in shower & separate toilet, hairdryer, and bath sheets. Hotel offers: free breakfast buffet daily, restaurant with international cuisine, bar/lounge, gym (surcharge), sauna (surcharge), massages available, bike hire.", "tip": "Check-in 3pm, check-out 11am. Atop the World Forum Convention Centre, just 4 min drive from Scheveningen Beach and 15 min walk from Madurodam. Sea views available in higher rooms. On-site parking \u20ac22\u201330/day (no pre-booking needed)."}, "carriage": {"name": "Horse-Drawn Carriage Tour", "tag": "Bruges \u00b7 30 min \u00b7 \u20ac70/carriage", "text": "A romantic half-hour ride through Bruges' cobblestone streets and canals, departing and ending at the Market Square. The carriages seat up to 5 people, include a 10-minute rest stop for the horse near the B\u00e9guinage (Wijngaardplein), where you can stretch your legs. The coachman provides commentary on the places you pass. On Wednesday mornings, carriages depart from Burg Square instead. No pre-booking needed \u2014 it\u2019s first-come, first-served.", "tip": "Pay cash directly to the coachman (€70 per carriage, no credit cards). Go early evening for lovely light and fewer crowds. The ride is magical after sunset, and it\u2019s a perfect wind-down after a busy day of sightseeing. Bring a light jacket as it can get cool in an open carriage."}};
 
-function openActivity(id) {
-  const activity = activities[id];
-  if (!activity) return;
-  document.getElementById('modalTitle').textContent = activity.name;
-  document.getElementById('modalTag').textContent = activity.tag;
-  document.getElementById('modalText').textContent = activity.text;
-  document.getElementById('modalTip').textContent = activity.tip;
-  document.getElementById('activityModal').style.display = 'block';
-}
-
-function closeActivity() {
-  document.getElementById('activityModal').style.display = 'none';
-}
-
-function switchTab(id) {
-  var tabs = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'info'];
-  tabs.forEach(function(tab) {
-    document.getElementById(tab).style.display = 'none';
-  });
-  document.getElementById(id).style.display = 'block';
-  
-  var buttons = document.querySelectorAll('.tab');
-  buttons.forEach(function(btn) {
-    btn.classList.remove('active');
-  });
-  event.target.classList.add('active');
-}
-
-window.onclick = function(event) {
-  var modal = document.getElementById('activityModal');
-  if (event.target === modal) {
-    modal.style.display = 'none';
+  function showTab(id) {
+    document.querySelectorAll('.panel, .map-panel, .info-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    document.querySelector('.tab[data-tab="' + id + '"]').classList.add('active');
+    document.querySelector('main').scrollTop = 0;
   }
-}
+
+  function showMap(id) {
+    document.querySelectorAll('.map-view').forEach(m => m.classList.remove('active'));
+    document.querySelectorAll('.map-subtab').forEach(t => t.classList.remove('active'));
+    document.getElementById('map-' + id).classList.add('active');
+    document.querySelector('.map-subtab[data-map="' + id + '"]').classList.add('active');
+  }
+
+  function openActivity(id) {
+    const a = activities[id];
+    document.getElementById('sheet-tag').textContent = a.tag;
+    document.getElementById('sheet-name').textContent = a.name;
+    document.getElementById('sheet-text').textContent = a.text;
+    document.getElementById('sheet-tip').textContent = a.tip;
+    document.getElementById('overlay').classList.add('active');
+  }
+  function closeActivity() {
+    document.getElementById('overlay').classList.remove('active');
+  }
 </script>
 
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  // ---- Interactive maps (Leaflet + OpenStreetMap) ----
+  const mapPoints = {
+    route: {
+      center: [51.0, 2.9], zoom: 7,
+      route: [[51.128, 1.313], [50.958, 1.864], [50.629, 3.057], [51.209, 3.225], [52.107, 4.278]],
+      pins: [
+        { ll: [51.128, 1.313], label: 'Dover', info: 'Ferry departs / arrives' },
+        { ll: [50.958, 1.864], label: 'Calais', info: 'Ferry arrives / departs' },
+        { ll: [50.629, 3.057], label: 'Lille', info: 'Mon 3 \u2013 Wed 5 Aug' },
+        { ll: [51.209, 3.225], label: 'Bruges', info: 'Wed 5 \u2013 Fri 7 Aug' },
+        { ll: [52.107, 4.278], label: 'The Hague', info: 'Fri 7 \u2013 Sun 9 Aug' }
+      ]
+    },
+    lille: {
+      center: [50.635, 3.055], zoom: 14,
+      pins: [
+        { ll: [50.6367, 3.0708], label: 'Flat (near Flandres)', info: 'Airbnb \u00b7 check-in/out base' },
+        { ll: [50.6427, 3.0450], label: 'Parc de la Citadelle', info: 'Boating lake, playgrounds' },
+        { ll: [50.6425, 3.0460], label: 'Zoo de Lille', info: 'Free entry' },
+        { ll: [50.6367, 3.0635], label: 'Vieux Lille', info: 'Old town, Grand Place' }
+      ]
+    },
+    bruges: {
+      center: [51.211, 3.226], zoom: 15,
+      pins: [
+        { ll: [51.2126, 3.2261], label: 'Golden Tulip Hotel de\u2019 Medici', info: 'Potterierei 15 \u00b7 hotel' },
+        { ll: [51.2085, 3.2247], label: 'Markt', info: 'Main square' },
+        { ll: [51.2083, 3.2242], label: 'Belfry of Bruges', info: '366 steps' },
+        { ll: [51.2097, 3.2255], label: 'Choco-Story', info: 'Chocolate museum' }
+      ]
+    },
+    schev: {
+      center: [52.100, 4.280], zoom: 13,
+      pins: [
+        { ll: [52.0917, 4.2857], label: 'Novotel The Hague World Forum', info: 'Johan de Wittlaan 42-44 \u00b7 hotel' },
+        { ll: [52.0989, 4.2823], label: 'Madurodam', info: 'Miniature park' },
+        { ll: [52.1094, 4.2779], label: 'Scheveningen Beach & Pier', info: 'Beach, pier, Ferris wheel' }
+      ]
+    }
+  };
+
+  const leafletMaps = {};
+
+  function pinIcon(label) {
+    return L.divIcon({
+      className: '',
+      html: '<div class="pin-label">' + label + '</div>',
+      iconSize: [0, 0]
+    });
+  }
+
+  function renderMapFallback(id, reason) {
+    const container = document.getElementById('leaflet-' + id);
+    if (!container) return;
+    const data = mapPoints[id];
+    if (!data) return;
+    let html = '<div class="map-fallback">';
+    html += '<div class="map-fallback-note">' + reason + '</div>';
+    data.pins.forEach(p => {
+      const q = encodeURIComponent(p.label);
+      html += '<div class="map-fallback-item">'
+        + '<div class="fb-name">' + p.label + '</div>'
+        + '<div class="fb-info">' + p.info + '</div>'
+        + '<a class="fb-link" target="_blank" rel="noopener" href="https://maps.google.com/?q=' + q + '">Open in Google Maps &rarr;</a>'
+        + '</div>';
+    });
+    html += '</div>';
+    container.classList.remove('leaflet-map');
+    container.innerHTML = html;
+  }
+
+  function initLeafletMap(id) {
+    if (leafletMaps[id] || !mapPoints[id]) return;
+    const data = mapPoints[id];
+
+    if (typeof L === 'undefined') {
+      renderMapFallback(id, 'Interactive map couldn\u2019t load (no internet, or the map library was blocked). Here are the pins as a list instead \u2014 tap any to open it in Maps.');
+      return;
+    }
+
+    try {
+      const map = L.map('leaflet-' + id, { scrollWheelZoom: false }).setView(data.center, data.zoom);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      if (data.route) {
+        L.polyline(data.route, { color: '#1B3A5C', weight: 3, dashArray: '6 6', opacity: 0.8 }).addTo(map);
+      }
+
+      data.pins.forEach(p => {
+        const marker = L.marker(p.ll, { icon: pinIcon(p.label) }).addTo(map);
+        marker.bindPopup('<b>' + p.label + '</b><br>' + p.info);
+        L.circleMarker(p.ll, { radius: 5, color: '#1B3A5C', weight: 2, fillColor: '#fff', fillOpacity: 1 })
+          .addTo(map)
+          .bindPopup('<b>' + p.label + '</b><br>' + p.info);
+      });
+
+      // If tiles fail to load entirely (e.g. offline), fall back to the list after a short wait
+      let tilesLoaded = false;
+      map.once('tileload', () => { tilesLoaded = true; });
+      setTimeout(() => {
+        if (!tilesLoaded) {
+          renderMapFallback(id, 'Map tiles couldn\u2019t load (probably no internet right now). Here are the pins as a list instead \u2014 tap any to open it in Maps.');
+        }
+      }, 6000);
+
+      leafletMaps[id] = map;
+    } catch (err) {
+      renderMapFallback(id, 'Interactive map failed to load. Here are the pins as a list instead \u2014 tap any to open it in Maps.');
+    }
+  }
+
+  // Route map is visible by default on load
+  document.addEventListener('DOMContentLoaded', () => {
+    initLeafletMap('route');
+  });
+
+  const _origShowMap = showMap;
+  showMap = function(id) {
+    _origShowMap(id);
+    initLeafletMap(id);
+    setTimeout(() => { if (leafletMaps[id]) leafletMaps[id].invalidateSize(); }, 50);
+  };
+
+  const _origShowTab = showTab;
+  showTab = function(id) {
+    _origShowTab(id);
+    if (id === 'map') {
+      const activeSub = document.querySelector('.map-subtab.active');
+      const mapId = activeSub ? activeSub.getAttribute('data-map') : 'route';
+      initLeafletMap(mapId);
+      setTimeout(() => { if (leafletMaps[mapId]) leafletMaps[mapId].invalidateSize(); }, 50);
+    }
+  };
+</script>
 </body>
 </html>
