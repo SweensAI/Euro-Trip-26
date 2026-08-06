@@ -7,7 +7,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Euro Trip 26">
 <title>Euro Trip 26 — Family Travel Planner</title>
-<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
 <style>
 :root {
   --navy: #1B3A5C;
@@ -109,6 +108,22 @@ body {
   color: #666;
   line-height: 1.5;
 }
+.chips {
+  margin-top: 8px;
+}
+.chip {
+  display: inline-block;
+  padding: 6px 12px;
+  background: var(--navy);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.chip:hover { background: var(--gold); }
 .tip {
   background: #f9f9f9;
   padding: 18px;
@@ -138,8 +153,61 @@ body {
 }
 .kid-tag.jacob { background: #e3f2fd; color: #1565c0; }
 .kid-tag.noah { background: #f3e5f5; color: #6a1b9a; }
-.kid-tag.both { background: #e8f5e9; color: #2e7d32; }
 h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: auto;
+}
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover { color: var(--navy); }
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+.modal-tag {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 15px;
+}
+.modal-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+.modal-tip {
+  background: #f9f9f9;
+  padding: 12px;
+  border-left: 3px solid var(--gold);
+  font-size: 13px;
+  color: #555;
+  font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -217,7 +285,7 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">9:30am–11:30am</div>
 <div class="sched-body">
 <div class="sched-desc">Zoo de Lille</div>
-<div class="note">Free entry. Parc de la Citadelle. NOTE: Zoo closed Tuesdays — plan alternative or check hours</div>
+<div class="note">Free entry. Parc de la Citadelle. NOTE: Zoo closed Tuesdays — plan alternative</div>
 </div>
 </div>
 
@@ -232,7 +300,7 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">1:30–4:00pm</div>
 <div class="sched-body">
 <div class="sched-desc">Parc de la Citadelle or Vieux Lille wander</div>
-<div class="note">Playgrounds, lake, wide lawns — or more old town exploring</div>
+<div class="note">Playgrounds, lake, wide lawns</div>
 </div>
 </div>
 </div>
@@ -253,7 +321,7 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">11:00–11:30am</div>
 <div class="sched-body">
 <div class="sched-desc">Carrefour Market, Sint-Andries</div>
-<div class="note">En route · Torhoutse Steenweg 130 · stock groceries for hotel</div>
+<div class="note">En route · Torhoutse Steenweg 130 · stock groceries</div>
 </div>
 </div>
 
@@ -270,6 +338,7 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-body">
 <div class="sched-desc">Check into Golden Tulip Hotel de' Medici</div>
 <div class="note">Potterierei 15 · Parking €25/day (first-come, first-served)</div>
+<div class="chips"><button class="chip" onclick="openActivity('bruges_hotel')">Hotel info →</button></div>
 </div>
 </div>
 
@@ -296,7 +365,8 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">10:15–11:45am</div>
 <div class="sched-body">
 <div class="sched-desc">Choco-Story chocolate museum</div>
-<div class="note">Booked · Wijnzakstraat 2 · €16/adult, €10/child · Demo & tasting</div>
+<div class="note">Booked · Wijnzakstraat 2 · €16/adult, €10/child</div>
+<div class="chips"><button class="chip" onclick="openActivity('choco')">Museum info →</button></div>
 </div>
 </div>
 
@@ -311,7 +381,8 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">12:45–1:15pm</div>
 <div class="sched-body">
 <div class="sched-desc">Canal boat tour</div>
-<div class="note">Rozenhoedkaai · Pay on the spot · €15/adult, €9/child · 30 min</div>
+<div class="note">Rozenhoedkaai · Pay on the spot · €15/adult, €9/child</div>
+<div class="chips"><button class="chip" onclick="openActivity('canal')">Tour info →</button></div>
 </div>
 </div>
 
@@ -327,7 +398,8 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">5:20–5:40pm</div>
 <div class="sched-body">
 <div class="sched-desc">Belfry of Bruges</div>
-<div class="note">Booked time slot · 2 adults €16 + Jacob €14 = €46 · 366 steps</div>
+<div class="note">Booked time slot · 2 adults €16 + Jacob €14 = €46</div>
+<div class="chips"><button class="chip" onclick="openActivity('belfry')">Climb info →</button></div>
 </div>
 </div>
 
@@ -335,23 +407,23 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">7:00pm</div>
 <div class="sched-body">
 <div class="sched-desc">Horse-drawn carriage tour</div>
-<div class="note">Market Square · Pay cash · €70/carriage (max 5 people) · ~30 min</div>
+<div class="note">Market Square · Pay cash · €70/carriage (max 5 people)</div>
 </div>
 </div>
 
 <div class="tip">
 <div class="tip-title">Thursday Costs</div>
-<div class="tip-text">Canal boat (2×€15 + 2×€9): €48 · Choco-Story (2×€16 + 2×€10): €52 · Belfry (2×€16 + €14): €46 · Horse carriage: €70 · <strong>Day total: €216</strong></div>
+<div class="tip-text">Canal boat: €48 · Choco-Story: €52 · Belfry: €46 · Horse carriage: €70 · <strong>Total: €216</strong></div>
 </div>
 
 <div class="tip">
 <span class="kid-tag jacob">Jacob (8)</span>
-<div class="tip-text">Canal boat and Choco-Story tasting will be highlights. Belfry climb is a good one-on-one adventure for you two. Noah can watch carrages from the square below.</div>
+<div class="tip-text">Canal boat and chocolate tasting are highlights. Belfry climb is a one-on-one adventure for you two.</div>
 </div>
 
 <div class="tip">
 <span class="kid-tag noah">Noah (5)</span>
-<div class="tip-text">Canal boat is short and novel. Choco tasting at the end is a win. Skip the Belfry — plenty to watch at ground level: street performers, carriages. Horse carriage in the evening is magical for him.</div>
+<div class="tip-text">Canal boat is short and novel. Chocolate tasting is a win. Skip the Belfry — watch street performers and carriages from the square.</div>
 </div>
 </div>
 
@@ -379,6 +451,7 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-body">
 <div class="sched-desc">Check into Novotel World Forum</div>
 <div class="note">Johan de Wittlaan 42-44 · On-site parking €22–30/day</div>
+<div class="chips"><button class="chip" onclick="openActivity('hague_hotel')">Hotel info →</button></div>
 </div>
 </div>
 
@@ -398,7 +471,8 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">9:30am–12:30pm</div>
 <div class="sched-body">
 <div class="sched-desc">Madurodam</div>
-<div class="note">Miniature park · 1:25 scale models · Arrive early, book online</div>
+<div class="note">Miniature park · 1:25 scale models · Book online</div>
+<div class="chips"><button class="chip" onclick="openActivity('madurodam')">Park info →</button></div>
 </div>
 </div>
 
@@ -414,6 +488,7 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-body">
 <div class="sched-desc">Scheveningen Beach & Pier</div>
 <div class="note">Rides open from 11am · Ferris wheel, paddling, sandcastles</div>
+<div class="chips"><button class="chip" onclick="openActivity('pier')">Pier info →</button></div>
 </div>
 </div>
 
@@ -441,7 +516,7 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <div class="sched-time">9:15am</div>
 <div class="sched-body">
 <div class="sched-desc">Depart for Calais ferry</div>
-<div class="note">~3h 15m drive · P&O ferry 2:00pm · Car reg LN66WJM</div>
+<div class="note">~3h 15m drive · P&O ferry 2:00pm · Car LN66WJM</div>
 </div>
 </div>
 
@@ -458,32 +533,54 @@ h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
 <h2>Trip Info & Costs</h2>
 
 <div class="tip">
+<div class="tip-title">Thursday 6 Aug — Bruges Activity Costs</div>
+<div class="tip-text"><strong>Canal boat</strong> (2×€15 + 2×€9): €48 · <strong>Choco-Story</strong> (2×€16 + 2×€10): €52 · <strong>Belfry</strong> (2×€16 + €14): €46 · <strong>Horse carriage</strong>: €70 · <strong>Day total: €216</strong></div>
+</div>
+
+<div class="tip">
 <div class="tip-title">Bruges — Golden Tulip Hotel de' Medici</div>
-<div class="tip-text">Potterierei 15 · Check-in 3pm, check-out 11am<br>Rooms: mini fridge, tea/coffee, flat-screen TV, AC, free WiFi, in-room safe, work desk. Bathrooms: separate toilet & shower, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant, bar/lounge, Turkish steam bath, Jacuzzi, wellness centre.<br>Parking: €25/day (first-come, first-served — email hotel your arrival time in advance).</div>
+<div class="tip-text">Potterierei 15 · Check-in 3pm, check-out 11am · Parking €25/day (first-come, first-served). Rooms: mini fridge, tea/coffee, TV, AC, WiFi, safe. Hotel: free breakfast, restaurant, bar, Turkish steam bath, Jacuzzi.</div>
 </div>
 
 <div class="tip">
 <div class="tip-title">The Hague — Novotel World Forum</div>
-<div class="tip-text">Johan de Wittlaan 42-44 · Check-in 3pm, check-out 11am<br>Rooms: mini-bar, tea/coffee, flat-screen TV with satellite, AC, free WiFi, in-room safe, telephone, iron. Bathrooms: walk-in shower, separate toilet, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant with international cuisine, bar/lounge, gym (surcharge), sauna (surcharge), massages, bike hire.<br>On-site parking: €22–30/day (no pre-booking needed).</div>
-</div>
-
-<div class="tip">
-<div class="tip-title">Thursday 6 Aug — Bruges Activity Costs</div>
-<div class="tip-text"><strong>Canal boat</strong> (2 adults + Jacob + Noah): 2×€15 + 2×€9 = €48<br><strong>Choco-Story</strong> (all 4): 2×€16 + 2×€10 = €52<br><strong>Belfry</strong> (2 adults + Jacob, booked 17:20–17:40): 2×€16 + €14 = €46<br><strong>Horse carriage</strong> (all 4): €70<br><strong>Day total: €216</strong></div>
-</div>
-
-<div class="tip">
-<div class="tip-title">Key Reminders</div>
-<div class="tip-text">• Parking first: confirm hotel parking before arrival (email in advance if needed)<br>• Supermarket planning: stop at Carrefour before checking in<br>• Offline maps: download Google Maps tiles for each region on WiFi<br>• Pre-book attractions: canal boats (pay on the spot OK), Choco-Story, Belfry, Madurodam<br>• Main meals at lunch (cheaper, easier with kids)<br>• One unplanned slot per day as buffer<br>• Pack car Saturday night for Sunday ferry departure</div>
+<div class="tip-text">Johan de Wittlaan 42-44 · Check-in 3pm, check-out 11am · On-site parking €22–30/day. Rooms: mini-bar, tea/coffee, TV, AC, WiFi, safe. Hotel: free breakfast, restaurant, bar, gym, sauna.</div>
 </div>
 
 </div>
 
 </div>
 
+</div>
+
+<!-- MODAL -->
+<div id="activityModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeActivity()">&times;</span>
+<div id="modalTitle" class="modal-title"></div>
+<div id="modalTag" class="modal-tag"></div>
+<div id="modalText" class="modal-text"></div>
+<div id="modalTip" class="modal-tip"></div>
+</div>
 </div>
 
 <script>
+const activities = {"canal":{"name":"Bruges Canal Boat Tour","tag":"Bruges · 30 min · €15/€9","text":"A boat ride along Bruges' canals, passing under low bridges and past centuries-old merchant houses. One of the best ways to see the city. Board at Rozenhoedkaai. No pre-booking — buy tickets on the spot. €15 per adult, €9 per child (4–11).","tip":"Go early morning before queues build. Sit near the front for best photos."},"choco":{"name":"Choco-Story","tag":"Bruges · ~1.5hrs · €16/€10","text":"Interactive museum tracing chocolate from bean to bar, with live demo and tasting. Indoors and air-conditioned. Address: Wijnzakstraat 2, a 3–5 min walk from boat stops. €16 per adult, €10 per child (3–11).","tip":"Book online in advance. Time your visit around the live demo."},"belfry":{"name":"Belfry of Bruges","tag":"Bruges · 366 steps · €15/€13","text":"Medieval bell tower with 366 narrow steps to the top. Panoramic city views. €15 per adult, €13 for ages 7–17 (Jacob), free under 6 (Noah). A genuine climb, 45 min.","tip":"One parent takes Jacob up while other waits in the square below with Noah."},"bruges_hotel":{"name":"Golden Tulip Hotel de' Medici","tag":"Bruges · 4-star · Potterierei 15","text":"Rooms feature mini fridge, tea/coffee, flat-screen TV, AC, free WiFi, in-room safe, work desk. Bathrooms: separate toilet & shower, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant, bar, Turkish steam bath, Jacuzzi, wellness centre. Check-in 3pm, check-out 11am.","tip":"Located on quiet canal, 10–15 min walk from Grote Markt. Parking €25/day (first-come, first-served — email hotel your arrival time)."},"madurodam":{"name":"Madurodam","tag":"The Hague · Miniature park · 1:25 scale","text":"Miniature park featuring Holland's most famous landmarks, canals, and even a working mini-airport. Genuinely one of the best attractions for kids this age. Summer hours typically 9am–6pm.","tip":"Arrive at opening to beat coach tour groups. Check daily show schedule at entrance."},"pier":{"name":"Scheveningen Beach & Pier","tag":"The Hague · Seaside · Rides from 11am","text":"North Sea beach resort with sandy beach, pier with rides, Ferris wheel, and casual seafront food. Close enough to walk from hotel. Rides typically open 11am–10pm in summer.","tip":"North Sea is bracing even in August. Bring windbreaks and towels. Save rides for early evening when cooler."},"hague_hotel":{"name":"Novotel World Forum","tag":"The Hague · 4-star · Johan de Wittlaan 42-44","text":"Rooms feature mini-bar, tea/coffee, flat-screen TV with satellite, AC, free WiFi, in-room safe, telephone, iron. Bathrooms: walk-in shower, separate toilet, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant, bar, gym (surcharge), sauna (surcharge). Check-in 3pm, check-out 11am.","tip":"On World Forum Convention Centre, 4 min drive from Scheveningen Beach. On-site parking €22–30/day (no pre-booking needed)."}};
+
+function openActivity(id) {
+  const activity = activities[id];
+  if (!activity) return;
+  document.getElementById('modalTitle').textContent = activity.name;
+  document.getElementById('modalTag').textContent = activity.tag;
+  document.getElementById('modalText').textContent = activity.text;
+  document.getElementById('modalTip').textContent = activity.tip;
+  document.getElementById('activityModal').style.display = 'block';
+}
+
+function closeActivity() {
+  document.getElementById('activityModal').style.display = 'none';
+}
+
 function switchTab(id) {
   var tabs = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'info'];
   tabs.forEach(function(tab) {
@@ -496,6 +593,13 @@ function switchTab(id) {
     btn.classList.remove('active');
   });
   event.target.classList.add('active');
+}
+
+window.onclick = function(event) {
+  var modal = document.getElementById('activityModal');
+  if (event.target === modal) {
+    modal.style.display = 'none';
+  }
 }
 </script>
 
