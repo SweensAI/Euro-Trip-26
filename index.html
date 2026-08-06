@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Euro Trip 26">
+<title>Euro Trip 26 — Family Travel Planner</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
+<style>
+:root {
+  --navy: #1B3A5C;
+  --gold: #B08D57;
+  --green: #4C7A5E;
+  --light: #f5f5f5;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--light);
+  color: #222;
+  line-height: 1.6;
+}
+.container { max-width: 920px; margin: 0 auto; padding: 20px; }
+.header {
+  text-align: center;
+  padding: 40px 20px 30px;
+  margin-bottom: 30px;
+  border-bottom: 3px solid var(--navy);
+}
+.header-tag { 
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.header h1 { 
+  font-size: 42px;
+  margin-bottom: 8px;
+  color: var(--navy);
+  font-weight: 700;
+}
+.header p { 
+  color: #666;
+  font-size: 16px;
+}
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab {
+  padding: 10px 18px;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+.tab:hover { border-color: var(--navy); }
+.tab.active { 
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+.content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.day-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--light);
+}
+.sched-row {
+  padding: 22px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  gap: 25px;
+}
+.sched-row:last-child { border-bottom: none; }
+.sched-time {
+  font-weight: 700;
+  color: var(--navy);
+  font-size: 14px;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+.sched-body { flex: 1; }
+.sched-desc {
+  font-size: 16px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 6px;
+}
+.note {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+}
+.tip {
+  background: #f9f9f9;
+  padding: 18px;
+  border-left: 4px solid var(--navy);
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.tip-title {
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+.tip-text {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+.kid-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+.kid-tag.jacob { background: #e3f2fd; color: #1565c0; }
+.kid-tag.noah { background: #f3e5f5; color: #6a1b9a; }
+.kid-tag.both { background: #e8f5e9; color: #2e7d32; }
+h2 { font-size: 20px; color: var(--navy); margin: 25px 0 15px 0; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+<div class="header-tag">SWEENEY FAMILY · 3–9 AUG 2026</div>
+<h1>Euro Trip 26</h1>
+<p>Dover → Lille → Bruges → The Hague → Dover</p>
+</div>
+
+<div class="tabs">
+<div class="tab active" onclick="switchTab('mon')">Mon 3</div>
+<div class="tab" onclick="switchTab('tue')">Tue 4</div>
+<div class="tab" onclick="switchTab('wed')">Wed 5</div>
+<div class="tab" onclick="switchTab('thu')">Thu 6</div>
+<div class="tab" onclick="switchTab('fri')">Fri 7</div>
+<div class="tab" onclick="switchTab('sat')">Sat 8</div>
+<div class="tab" onclick="switchTab('sun')">Sun 9</div>
+<div class="tab" onclick="switchTab('info')">Trip Info</div>
+</div>
+
+<div class="content">
+
+<!-- MONDAY -->
+<div id="mon" style="display:none;">
+<div class="day-title">Monday 3 August — Wanstead to Lille</div>
+
+<div class="sched-row">
+<div class="sched-time">8:00am</div>
+<div class="sched-body">
+<div class="sched-desc">Depart Wanstead</div>
+<div class="note">Head to Dover for ferry. Car LN66WJM</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">12:30pm</div>
+<div class="sched-body">
+<div class="sched-desc">P&O Dover–Calais ferry</div>
+<div class="note">~90 min crossing. Lunch on board</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">3:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Arrive Calais, drive to Lille</div>
+<div class="note">~1 hour drive. Local parking near Vieux Lille</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">4:30–6:30pm</div>
+<div class="sched-body">
+<div class="sched-desc">Explore Vieux Lille</div>
+<div class="note">Wander cobbled streets, chocolate shops, squares</div>
+</div>
+</div>
+</div>
+
+<!-- TUESDAY -->
+<div id="tue" style="display:none;">
+<div class="day-title">Tuesday 4 August — Lille</div>
+
+<div class="sched-row">
+<div class="sched-time">8:00am</div>
+<div class="sched-body">
+<div class="sched-desc">Breakfast at the hotel</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">9:30am–11:30am</div>
+<div class="sched-body">
+<div class="sched-desc">Zoo de Lille</div>
+<div class="note">Free entry. Parc de la Citadelle. NOTE: Zoo closed Tuesdays — plan alternative or check hours</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">12:00–1:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Lunch</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">1:30–4:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Parc de la Citadelle or Vieux Lille wander</div>
+<div class="note">Playgrounds, lake, wide lawns — or more old town exploring</div>
+</div>
+</div>
+</div>
+
+<!-- WEDNESDAY -->
+<div id="wed" style="display:none;">
+<div class="day-title">Wednesday 5 August — Lille to Bruges</div>
+
+<div class="sched-row">
+<div class="sched-time">10:00–11:00am</div>
+<div class="sched-body">
+<div class="sched-desc">Drive to Bruges</div>
+<div class="note">~1 hour</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">11:00–11:30am</div>
+<div class="sched-body">
+<div class="sched-desc">Carrefour Market, Sint-Andries</div>
+<div class="note">En route · Torhoutse Steenweg 130 · stock groceries for hotel</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">11:30am–3:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Arrive Bruges, explore Markt, lunch</div>
+<div class="note">Early arrival · bags in car · check-in from 3pm</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">3:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Check into Golden Tulip Hotel de' Medici</div>
+<div class="note">Potterierei 15 · Parking €25/day (first-come, first-served)</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">3:30–5:30pm</div>
+<div class="sched-body">
+<div class="sched-desc">Free time — rest, settle in</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">6:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Dinner</div>
+</div>
+</div>
+</div>
+
+<!-- THURSDAY -->
+<div id="thu" style="display:block;">
+<div class="day-title">Thursday 6 August — Bruges</div>
+
+<div class="sched-row">
+<div class="sched-time">10:15–11:45am</div>
+<div class="sched-body">
+<div class="sched-desc">Choco-Story chocolate museum</div>
+<div class="note">Booked · Wijnzakstraat 2 · €16/adult, €10/child · Demo & tasting</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">11:45am–12:45pm</div>
+<div class="sched-body">
+<div class="sched-desc">Lunch near the Markt</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">12:45–1:15pm</div>
+<div class="sched-body">
+<div class="sched-desc">Canal boat tour</div>
+<div class="note">Rozenhoedkaai · Pay on the spot · €15/adult, €9/child · 30 min</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">1:15–3:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Free wander — Markt, shops, street performers</div>
+<div class="note">Downtime before the climb</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">5:20–5:40pm</div>
+<div class="sched-body">
+<div class="sched-desc">Belfry of Bruges</div>
+<div class="note">Booked time slot · 2 adults €16 + Jacob €14 = €46 · 366 steps</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">7:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Horse-drawn carriage tour</div>
+<div class="note">Market Square · Pay cash · €70/carriage (max 5 people) · ~30 min</div>
+</div>
+</div>
+
+<div class="tip">
+<div class="tip-title">Thursday Costs</div>
+<div class="tip-text">Canal boat (2×€15 + 2×€9): €48 · Choco-Story (2×€16 + 2×€10): €52 · Belfry (2×€16 + €14): €46 · Horse carriage: €70 · <strong>Day total: €216</strong></div>
+</div>
+
+<div class="tip">
+<span class="kid-tag jacob">Jacob (8)</span>
+<div class="tip-text">Canal boat and Choco-Story tasting will be highlights. Belfry climb is a good one-on-one adventure for you two. Noah can watch carrages from the square below.</div>
+</div>
+
+<div class="tip">
+<span class="kid-tag noah">Noah (5)</span>
+<div class="tip-text">Canal boat is short and novel. Choco tasting at the end is a win. Skip the Belfry — plenty to watch at ground level: street performers, carriages. Horse carriage in the evening is magical for him.</div>
+</div>
+</div>
+
+<!-- FRIDAY -->
+<div id="fri" style="display:none;">
+<div class="day-title">Friday 7 August — Bruges to The Hague</div>
+
+<div class="sched-row">
+<div class="sched-time">8:00am</div>
+<div class="sched-body">
+<div class="sched-desc">Breakfast and check out</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">9:30am–12:30pm</div>
+<div class="sched-body">
+<div class="sched-desc">Drive to The Hague</div>
+<div class="note">~1.5 hours</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">3:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Check into Novotel World Forum</div>
+<div class="note">Johan de Wittlaan 42-44 · On-site parking €22–30/day</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">3:30–5:30pm</div>
+<div class="sched-body">
+<div class="sched-desc">Beach or rest</div>
+</div>
+</div>
+</div>
+
+<!-- SATURDAY -->
+<div id="sat" style="display:none;">
+<div class="day-title">Saturday 8 August — The Hague / Scheveningen</div>
+
+<div class="sched-row">
+<div class="sched-time">9:30am–12:30pm</div>
+<div class="sched-body">
+<div class="sched-desc">Madurodam</div>
+<div class="note">Miniature park · 1:25 scale models · Arrive early, book online</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">1:00–2:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Lunch</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">2:00–4:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Scheveningen Beach & Pier</div>
+<div class="note">Rides open from 11am · Ferris wheel, paddling, sandcastles</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">6:30pm</div>
+<div class="sched-body">
+<div class="sched-desc">Dinner</div>
+</div>
+</div>
+</div>
+
+<!-- SUNDAY -->
+<div id="sun" style="display:none;">
+<div class="day-title">Sunday 9 August — Return to UK</div>
+
+<div class="sched-row">
+<div class="sched-time">8:00am</div>
+<div class="sched-body">
+<div class="sched-desc">Breakfast and check out</div>
+<div class="note">Pack car Saturday night</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">9:15am</div>
+<div class="sched-body">
+<div class="sched-desc">Depart for Calais ferry</div>
+<div class="note">~3h 15m drive · P&O ferry 2:00pm · Car reg LN66WJM</div>
+</div>
+</div>
+
+<div class="sched-row">
+<div class="sched-time">5:00–6:00pm</div>
+<div class="sched-body">
+<div class="sched-desc">Arrive Dover</div>
+</div>
+</div>
+</div>
+
+<!-- TRIP INFO -->
+<div id="info" style="display:none;">
+<h2>Trip Info & Costs</h2>
+
+<div class="tip">
+<div class="tip-title">Bruges — Golden Tulip Hotel de' Medici</div>
+<div class="tip-text">Potterierei 15 · Check-in 3pm, check-out 11am<br>Rooms: mini fridge, tea/coffee, flat-screen TV, AC, free WiFi, in-room safe, work desk. Bathrooms: separate toilet & shower, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant, bar/lounge, Turkish steam bath, Jacuzzi, wellness centre.<br>Parking: €25/day (first-come, first-served — email hotel your arrival time in advance).</div>
+</div>
+
+<div class="tip">
+<div class="tip-title">The Hague — Novotel World Forum</div>
+<div class="tip-text">Johan de Wittlaan 42-44 · Check-in 3pm, check-out 11am<br>Rooms: mini-bar, tea/coffee, flat-screen TV with satellite, AC, free WiFi, in-room safe, telephone, iron. Bathrooms: walk-in shower, separate toilet, hairdryer, bath sheets. Hotel: free breakfast buffet, restaurant with international cuisine, bar/lounge, gym (surcharge), sauna (surcharge), massages, bike hire.<br>On-site parking: €22–30/day (no pre-booking needed).</div>
+</div>
+
+<div class="tip">
+<div class="tip-title">Thursday 6 Aug — Bruges Activity Costs</div>
+<div class="tip-text"><strong>Canal boat</strong> (2 adults + Jacob + Noah): 2×€15 + 2×€9 = €48<br><strong>Choco-Story</strong> (all 4): 2×€16 + 2×€10 = €52<br><strong>Belfry</strong> (2 adults + Jacob, booked 17:20–17:40): 2×€16 + €14 = €46<br><strong>Horse carriage</strong> (all 4): €70<br><strong>Day total: €216</strong></div>
+</div>
+
+<div class="tip">
+<div class="tip-title">Key Reminders</div>
+<div class="tip-text">• Parking first: confirm hotel parking before arrival (email in advance if needed)<br>• Supermarket planning: stop at Carrefour before checking in<br>• Offline maps: download Google Maps tiles for each region on WiFi<br>• Pre-book attractions: canal boats (pay on the spot OK), Choco-Story, Belfry, Madurodam<br>• Main meals at lunch (cheaper, easier with kids)<br>• One unplanned slot per day as buffer<br>• Pack car Saturday night for Sunday ferry departure</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function switchTab(id) {
+  var tabs = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'info'];
+  tabs.forEach(function(tab) {
+    document.getElementById(tab).style.display = 'none';
+  });
+  document.getElementById(id).style.display = 'block';
+  
+  var buttons = document.querySelectorAll('.tab');
+  buttons.forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
